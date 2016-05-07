@@ -145,8 +145,9 @@
 	      		<form class="form-horizontal">
 				  <div class="form-group">
 				    <div class="col-sm-12">
-				      <h4>Preguntas <span class="label label-info">No 1</span> de 20</h4><span class="label label-info">Pregunta No 1</span>
-				      <p>Contenido de Pregunta numero 2</p>
+				      <h4>Preguntas <span class="label label-info">No 1</span> de 20</h4>
+				      <br>
+				      <textarea name="contentask" id="contentask" placeholder="Escribir el contenido de la pregunta"></textarea>
 				    </div>
 				  </div>
 				  <div class="form-group col-sm-6">
@@ -183,10 +184,10 @@
 				  </div>
 				  <div class="form-group">
 				    <div class="col-sm-10">
+				      <span  class="help-block">Selecciona cual respuesta es la correcta</span>
 				      <button type="button" class="btn btn-success"><i class="glyphicon glyphicon-menu-right"></i> Guardar y Continuar</button>
 				    </div>
 				  </div>
-
 	      	</form>
 	        
       	</div>
