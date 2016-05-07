@@ -1,0 +1,78 @@
+html, body{
+	width: 100%;
+	height: 100%;
+}
+
+.navbar-img{
+    float: left;
+    height: 50px;
+    font-size: 18px;
+    line-height: 20px;
+    padding: 0px 10px;	
+}
+
+.navbar-img img{
+	max-height: 50px;
+}
+.navbar-header{
+	width: 100%;
+}
+
+.right{
+	float: right;
+}
+
+.img-center{
+	margin: auto;
+	display: block;
+}
+
+.img-right{
+	float: right;
+}
+
+ul.navbar-button li{
+	padding: 0px 5px;
+}
+
+.msj-prin{
+	margin-top: -20px;
+    position: absolute;
+    width: 100%;
+}
+
+.glyphicon-refresh{
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+
+.glyphicon-refresh.static{
+    -animation: none;
+    -webkit-animation: none;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+.modal-footer{
+    text-align: left !important;
+}
+
+nav.foot-quest > * {
+    text-align: left !important;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+nav.foot-quest > .pagination >li.active >a{
+    background: #337ab7;
+    color: #fff;
+}
