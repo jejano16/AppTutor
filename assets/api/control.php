@@ -9,8 +9,10 @@
 		$post = $_POST;
 		$n_post =  convertArray($post,"q+c");
 		switch ($_POST["func"]) {
+			case 'loginSend':
+				$json = $user->loginSend();
+				break;
 			case 'create_user':
-				$json = $n_post;
 				$json = $user->newUser($n_post);
 				break;
 			default:

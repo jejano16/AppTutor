@@ -11,6 +11,8 @@
 	ini_set('memory_limit', '-1');
 	ini_set('max_execution_time', 300);
 
+	require_once "auth.class.php";
+
 	// Cambiar comillas por codificación en html
 	function htmlspecialcharsQuotes(&$value) {
 	  $value = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');

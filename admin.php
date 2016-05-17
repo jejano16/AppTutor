@@ -1,3 +1,7 @@
+<?php require_once "assets/api/auth.class.php";
+    auth::authLogin(auth::get_url(),1);
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
