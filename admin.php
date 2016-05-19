@@ -1,11 +1,11 @@
 <?php require_once "assets/api/auth.class.php";
-    auth::authLogin(auth::get_url(),1);
+    auth::authLogin("close.php",1);
 
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Admin. {Nombre de usuario}</title>
+	<title>Admin. <?php echo $_SESSION["Name"]; ?></title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="assets/src/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -16,18 +16,18 @@
 	  <div class="container">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
-	      <a class="navbar-img" href="student.php">
+	      <a class="navbar-img" href="admin.php">
 	        <img alt="Header Image" src="img/img_code_ico.png">
 	      </a>
 	      <a class="navbar-brand" href="admin.php">Code Gram</a>
 	      <ul class="nav navbar-nav navbar-right">
 	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><small>Bienvenido(a)</small> <i class="glyphicon glyphicon-user"></i> {Nombre de usuario} <span class="caret"></span></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><small>Bienvenido(a)</small> <i class="glyphicon glyphicon-user"></i> <?php echo $_SESSION["Name"]." ".$_SESSION["Name1"]." ".$_SESSION["LastName"]; ?> <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Rol : Admnistrador</a></li>
+	            <li><a href="#"><i class="glyphicon glyphicon-user"></i> Rol : Admnistrador</a></li>
 	            <li role="separator" class="divider"></li>
-	            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Inicio</a></li>
-	            <li><a href="#"><i class="glyphicon glyphicon-info-sign"></i> Información de usuario</a></li>
+	            <li><a href="admin.php"><i class="glyphicon glyphicon-home"></i> Inicio</a></li>
+	            <!-- <li><a href="#"><i class="glyphicon glyphicon-info-sign"></i> Información de usuario</a></li> -->
 	            <li role="separator" class="divider"></li>
 	            <li><a href="close.php"><i class="glyphicon glyphicon-log-out"></i> Cerrar sesión</a></li>
 	          </ul>
@@ -42,8 +42,8 @@
 		<div>
 		  <!-- Nav tabs -->
 		  <ul class="nav nav-tabs" role="tablist" id="tab-stud">
-		    <li role="presentation" class="active"><a href="#tab-st-1" aria-controls="tab-st-1" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-check"></i> Resolver Prueba</a></li>
-		    <li role="presentation"><a href="#tab-st-2" aria-controls="tab-st-2" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-education"></i> Temas Evaluados</a></a></li>
+		    <li role="presentation" class="active"><a href="#tab-st-1" aria-controls="tab-st-1" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-check"></i> Crear Examen</a></li>
+		    <li role="presentation"><a href="#tab-st-2" aria-controls="tab-st-2" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-education"></i> Crear Temas a evaluar</a></a></li>
 		  </ul>
 
 		  <!-- Tab panes -->
@@ -54,17 +54,13 @@
 		  	<!-- Tab Exam -->
 		    <div role="tabpanel" class="tab-pane active" id="tab-st-1">
 		    	<div class="page-header">
-				  <h1 class="text-center">Mide tus conocimientos <br><small>Realiza las siguiente(s) prueba(s) para determinar tus niveles de conocimiento</small></h1>
+				  <h1 class="text-center">Crear examen <br><small>Ingresa las pruebas para evaluar los conocimientos de los estudintes</small></h1>
 				</div>
 				<div class="row">
 					<div class="list-group">
 						<a href="#" class="list-group-item" data-toggle="modal" data-target="#exam">
-							<h4 class="list-group-item-heading"><i class="glyphicon glyphicon-question-sign"></i> Examen 1</h4>
-							<p class="list-group-item-text">No se ha realizado la prueba, haz click para empezar</p>
-						</a>
-						<a href="#" class="list-group-item">
-							<h4 class="list-group-item-heading"><i class="glyphicon glyphicon-ok-sign text-success"></i> Examen 2</h4>
-							<p class="list-group-item-text"><span class="text-success">Respuestas correctas: 2</span> de 3</p>
+							<h4 class="list-group-item-heading"><i class="glyphicon glyphicon-plus"></i> Crear Examen</h4>
+							<p class="list-group-item-text">Crear una nueva prueba</p>
 						</a>
 					</div>
 				</div>
@@ -73,61 +69,10 @@
 		    <!-- Tab Topic-->
 		    <div role="tabpanel" class="tab-pane" id="tab-st-2">
 		    	<div class="page-header">
-				  <h1 class="text-center">Temas Evaluados <br><small>Aquí encontraras los temas evaluados de acuerdo a lo respondido en el (los) exámen(es) realizado(s)</small></h1>
+				  <h1 class="text-center">Temas a Evaluar <br><small>Aquí encontraras los temas evaluados de acuerdo a lo respondido en el (los) exámen(es) realizado(s)</small></h1>
 				</div>
 			    	<div class="row">
-					  <div class="col-sm-6 col-md-4">
-					    <div class="thumbnail">
-					      <div class="caption">
-					        <h4><i class="glyphicon glyphicon-tag"></i> Variables <small>Estructura de datos</small></h4>
-					        <p><span class="text-success">Respuestas correctas: 2</span> de 3</p>
-					        <div class="progress">
-							  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-							    <span class="sr-only">45%</span> 45%
-							  </div>
-							</div>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col-sm-6 col-md-4">
-					    <div class="thumbnail">
-					      <div class="caption">
-					        <h4><i class="glyphicon glyphicon-tag"></i> Variables <small>Estructura de datos</small></h4>
-					        <p><span class="text-success">Respuestas correctas: 2</span> de 3</p>
-					        <div class="progress">
-							  <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-							    <span class="sr-only">45%</span> 45%
-							  </div>
-							</div>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col-sm-6 col-md-4">
-					    <div class="thumbnail">
-					      <div class="caption">
-					        <h4><i class="glyphicon glyphicon-tag"></i> Variables <small>Estructura de datos</small></h4>
-					        <p><span class="text-success">Respuestas correctas: 2</span> de 3</p>
-					        <div class="progress">
-							  <div class="progress-bar progress-bar-striped progress-bar-danger active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-							    <span class="sr-only">45%</span> 45%
-							  </div>
-							</div>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col-sm-6 col-md-4">
-					    <div class="thumbnail">
-					      <div class="caption">
-					        <h4><i class="glyphicon glyphicon-tag"></i> Variables <small>Estructura de datos</small></h4>
-					        <p><span class="text-success">Respuestas correctas: 2</span> de 3</p>
-					        <div class="progress">
-							  <div class="progress-bar progress-bar-striped progress-bar-warning active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-							    <span class="sr-only">45%</span> 45%
-							  </div>
-							</div>
-					      </div>
-					    </div>
-					  </div>
+					  <button class="btn btn-warning"><i class="glyphicon glyphicon-plus"></i>	Crear nuevo tema</button>
 					</div>
 		    </div>
 		    <!-- End Tab Topic-->

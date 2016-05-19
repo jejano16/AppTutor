@@ -53,7 +53,7 @@
 					  <!-- Tab panes -->
 					  <div class="tab-content">
 					  	<!-- Tab Register -->
-					    <div role="tabpanel" class="tab-pane active" id="tab-1">
+					    <div role="tabpanel" class="tab-pane" id="tab-1">
 					    	<form class="reg-form" id="reg-tmp-us">
 							  <h3 class="text-center"><i class="glyphicon glyphicon-education"></i> Registro de estudiantes</h3>
 							  <!-- 
@@ -95,13 +95,13 @@
 					    </div>
 					    <!-- End Tab Register-->
 					    <!-- Tab Login-->
-					    <div role="tabpanel" class="tab-pane" id="tab-2">
+					    <div role="tabpanel" class="tab-pane active" id="tab-2">
 					    	<form id="log-us">
 							  <h3 class="text-center"><i class="glyphicon glyphicon-log-in"></i> Iniciar sesión</h3>
 							  <div class="form-group">
 							    <div class="input-group">
 							      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i> </span>
-								  <input type="text" class="form-control" placeholder="Correo Institucional" required />
+								  <input type="text" name="v_Email" id="v_Email" class="form-control" placeholder="Correo Institucional" required />
 								  <span class="input-group-addon">@campusucc.edu.co</span>
 								</div>
 							    <p class="help-block"></p>
@@ -109,11 +109,12 @@
 							  <div class="form-group">
 							    <div class="input-group">
 							    	<span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i> </span>
-								  	<input type="password" class="form-control" placeholder="Contraseña" required>
+								  	<input type="password" name="v_Pass" id="v_Pass" class="form-control" placeholder="Contraseña" required>
 							  	</div>
 							    <p class="help-block"></p>
 							  </div>
 							  <button type="submit" class="btn btn-info btn-lg btn-block"><span class="glyphicon glyphicon-lock"></span> Ingresar</button>
+							  <div class="msj"></div>
 							</form>
 					    </div>
 					    <!-- End Tab Login-->

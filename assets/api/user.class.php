@@ -4,11 +4,11 @@ class User
 {
     private $list;
 
-    public function loginSend(){
+    public function loginSend($arr){
 
-        $arr["v_Pass"] = md5(md5($arr["v_Pass"]));
         $arr["v_Email"] = $arr["v_Email"]."@campusucc.edu.co";
-        $qry = "SELECT u.Id, Id_TypeDoc, DocIde, u.Name, Name1, LastName, CodStudent, DateInUni, Email, Pass, RqPass, StateUser, Profile, td.Name tdoc FROM user u INNER JOIN typedoc td ON (u.Id_TypeDoc = td.Id) WHERE Email = :Email AND Pass = :Pass";
+        $arr["v_Pass"] = md5(md5($arr["v_Pass"]));
+        $qry = "SELECT u.Id, Id_TypeDoc, DocIde, u.Name, Name1, LastName, CodStudent, DateInUni, Email, Pass, RqPass, StateUser, Profile, td.Name tdoc FROM user u INNER JOIN typedoc td ON (u.Id_TypeDoc = td.Id) WHERE Email = :v_Email AND Pass = :v_Pass";
         $objCon = new conDB; //instanciamos conector
         $rsQry = $objCon->queryDB($qry, $arr);
 
@@ -32,7 +32,7 @@ class User
                 $_SESSION["index"] = ($v["Profile"] == "Admin")? "admin.php" : "student.php";
                 
                 $ar["v"] = true;
-                $ar["msj"] = "Bienvenido <b>".$v["Name"]."</b>";
+                $ar["msj"] = "<b>".$v["Name"]."</b>";
                 $ar["dir"]= $_SESSION["index"];
             }else{
                 $ar["v"] = false;

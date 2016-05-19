@@ -13,7 +13,7 @@ class auth
 	// Validar Login
 	public static function authLogin($url,$op)
 	{
-		if(!isset($_SESSION["Id_us"]) ){
+		if(!isset($_SESSION["Id"]) ){
 			// echo "No se ha inciado sesión";
 			switch ($op) {
 				case 2:
@@ -31,17 +31,23 @@ class auth
 		}else{
 			switch ($op) {
 				case 1:
+					if(array_pop((explode("/", $_SERVER['REQUEST_URI']))) != $_SESSION["index"] ){
+						header("Location:".$_SESSION["index"]);
+					}
+					break;
+				case 2:
 					$dir = (empty($_SESSION["index"]))? $_SESSION["index"] : $url;
 					$ar["v"]=true;
 					$ar["msj"]="Tienes unas sesión iniciada <a class='btn btn-success' href='".$dir."'>Ingresa a la cuenta</a>";
 					break;
 				default:
-					$ar["v"]=false;
 					break;
 			}
 					return $ar;
 					
 		}
+
+		
 	}
 
 }

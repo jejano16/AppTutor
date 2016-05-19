@@ -1,7 +1,10 @@
+<?php require_once "assets/api/auth.class.php";
+    auth::authLogin("close.php",1);
+    ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Bienvenido(a) {Usuario}</title>
+	<title>Bienvenido(a) <?php echo $_SESSION["Name"]." ".$_SESSION["Name1"]." ".$_SESSION["LastName"]; ?></title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="assets/src/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -18,10 +21,10 @@
 	      <a class="navbar-brand" href="student.php">Code Gram</a>
 	      <ul class="nav navbar-nav navbar-right">
 	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><small>Bienvenido(a)</small> <i class="glyphicon glyphicon-user"></i> {Nombre de usuario} <span class="caret"></span></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><small>Bienvenido(a)</small> <i class="glyphicon glyphicon-user"></i> <?php echo $_SESSION["Name"]." ".$_SESSION["Name1"]." ".$_SESSION["LastName"]; ?> <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 	            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Inicio</a></li>
-	            <li><a href="#"><i class="glyphicon glyphicon-info-sign"></i> Información de usuario</a></li>
+	            <!-- <li><a href="#"><i class="glyphicon glyphicon-info-sign"></i> Información de usuario</a></li> -->
 	            <li role="separator" class="divider"></li>
 	            <li><a href="close.php"><i class="glyphicon glyphicon-log-out"></i> Cerrar sesión</a></li>
 	          </ul>
@@ -56,10 +59,10 @@
 							<h4 class="list-group-item-heading"><i class="glyphicon glyphicon-question-sign"></i> Examen 1</h4>
 							<p class="list-group-item-text">No se ha realizado la prueba, haz click para empezar</p>
 						</a>
-						<a href="#" class="list-group-item">
+						<!-- <a href="#" class="list-group-item">
 							<h4 class="list-group-item-heading"><i class="glyphicon glyphicon-ok-sign text-success"></i> Examen 2</h4>
-							<p class="list-group-item-text"><span class="text-success">Respuestas correctas: 2</span> de 3</p>
-						</a>
+							<p class="list-group-item-text"><span class="text-success">Respuestas correctas: 0</span> de 0</p>
+						</a> -->
 					</div>
 				</div>
 		    </div>
@@ -74,10 +77,10 @@
 					    <div class="thumbnail">
 					      <div class="caption">
 					        <h4><i class="glyphicon glyphicon-tag"></i> Variables <small>Estructura de datos</small></h4>
-					        <p><span class="text-success">Respuestas correctas: 2</span> de 3</p>
+					        <p><span class="text-success">Respuestas correctas: 0</span> de 0</p>
 					        <div class="progress">
-							  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-							    <span class="sr-only">45%</span> 45%
+							  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+							    <span class="sr-only">0%</span> 0%
 							  </div>
 							</div>
 					      </div>
@@ -86,11 +89,11 @@
 					  <div class="col-sm-6 col-md-4">
 					    <div class="thumbnail">
 					      <div class="caption">
-					        <h4><i class="glyphicon glyphicon-tag"></i> Variables <small>Estructura de datos</small></h4>
-					        <p><span class="text-success">Respuestas correctas: 2</span> de 3</p>
+					        <h4><i class="glyphicon glyphicon-tag"></i> Condicionales <small>Estructura de datos</small></h4>
+					        <p><span class="text-success">Respuestas correctas: 0</span> de 0</p>
 					        <div class="progress">
-							  <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-							    <span class="sr-only">45%</span> 45%
+							  <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+							    <span class="sr-only">0%</span> 0%
 							  </div>
 							</div>
 					      </div>
@@ -99,24 +102,11 @@
 					  <div class="col-sm-6 col-md-4">
 					    <div class="thumbnail">
 					      <div class="caption">
-					        <h4><i class="glyphicon glyphicon-tag"></i> Variables <small>Estructura de datos</small></h4>
-					        <p><span class="text-success">Respuestas correctas: 2</span> de 3</p>
+					        <h4><i class="glyphicon glyphicon-tag"></i> Iteraciones <small>Estructura de datos</small></h4>
+					        <p><span class="text-success">Respuestas correctas: 0</span> de 0</p>
 					        <div class="progress">
-							  <div class="progress-bar progress-bar-striped progress-bar-danger active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-							    <span class="sr-only">45%</span> 45%
-							  </div>
-							</div>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col-sm-6 col-md-4">
-					    <div class="thumbnail">
-					      <div class="caption">
-					        <h4><i class="glyphicon glyphicon-tag"></i> Variables <small>Estructura de datos</small></h4>
-					        <p><span class="text-success">Respuestas correctas: 2</span> de 3</p>
-					        <div class="progress">
-							  <div class="progress-bar progress-bar-striped progress-bar-warning active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-							    <span class="sr-only">45%</span> 45%
+							  <div class="progress-bar progress-bar-striped progress-bar-danger active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+							    <span class="sr-only">0%</span> 0%
 							  </div>
 							</div>
 					      </div>
@@ -135,7 +125,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><i class="glyphicon glyphicon-console"></i> Examen No. 1</h4>
+        <h4 class="modal-title" id="myModalLabel"><i class="glyphicon glyphicon-console"></i> Examen No. 1 <small>Ecamen de prueba</small></h4>
       </div>
       <div class="modal-body">
       	<div class="btn-group">
@@ -144,7 +134,7 @@
 				  <div class="form-group">
 				    <div class="col-sm-12">
 				      <h4>Preguntas <span class="label label-info">No 1</span> de 20</h4><span class="label label-info">Pregunta No 1</span>
-				      <p>Contenido de Pregunta numero 2</p>
+				      <p>Contenido de Pregunta No 1</p>
 				    </div>
 				  </div>
 				  <div class="form-group col-sm-6">

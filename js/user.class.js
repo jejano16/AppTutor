@@ -7,6 +7,9 @@ $(function(){
     // Form definitivo de registro
     $("#reg-us").on("submit", createUser);
 
+    // Form Logueo
+    $("#log-us").on("submit", LoginUser);
+
     // Seleccionar pestaña de Login
     $(".loginuser").on("click",function(){
         $('#tab-index a[href="#tab-2"]').tab('show');
@@ -62,6 +65,40 @@ function createUser(e){
                     $("form").reset();
                     $("form.reg-form :input[readonly]").prop("readonly", false);
                     $(".btn[type=submit]").toggleBtn(true, false);
+                }else{
+                    btn.toggleBtn(true);
+                    msj.alertGen('danger', null,'<b><i class="glyphicon glyphicon-remove-circle"></i> Error</b> '+json.msj);
+                    _this.find("input[type=password]").val("");
+                }
+            });
+}
+
+function LoginUser(e){
+        e.preventDefault();
+        var msj = $(this).find(".msj");
+        var _this = $(this);
+        var btn =  $(this).find("button[type=submit]");
+
+        var formData = new FormData(this);
+            formData.append("func", "loginsend");
+
+            $.ajax({
+                data: formData ,
+                beforeSend: function(){
+                    msj.alertGen();
+                    btn.toggleBtn(false, false);
+                },
+                error : function(a,b,c){
+                    btn.toggleBtn(true);
+                    console.warn("Error en envío "+b); console.warn(c); console.warn(a);
+                    msj.alertGen('danger', null,'<b><i class="glyphicon glyphicon-error"></i> Error:</b> No se pudo enviar la información, Intentalo nuevamente');
+                }
+            }).done(function(json){
+                msj.hiddenAlert();
+                if(json.v){
+                    $(".msj-prin").alertGen('success', null,'<b><i class="glyphicon glyphicon-ok-circle"></i></b> Bienvenido(a) a Code Gram '+json.msj);
+                    _this.reset();
+                    setTimeout(function() {location.href = json.dir}, 1000);
                 }else{
                     btn.toggleBtn(true);
                     msj.alertGen('danger', null,'<b><i class="glyphicon glyphicon-remove-circle"></i> Error</b> '+json.msj);
