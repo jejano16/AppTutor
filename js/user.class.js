@@ -21,6 +21,8 @@ $(function(){
         $(".btn[type=submit]").toggleBtn(true, false);
     })
 
+    $('[type="date"]').prop('max',function(){ var x = new Date().toJSON().split('T'); console.log(x[0]); return x[0]; })
+
 })
 
 function createUser(e){
